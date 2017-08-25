@@ -1,0 +1,12 @@
+testcode
+1.docx
+2.docx
+3.docx
+code storage.py
+.idea/ParseDoc.iml
+.idea/inspectionProfiles/
+.idea/misc.xml
+.idea/modules.xml
+.idea/workspace.xml
+__pycache__/
+searching.py
