@@ -7,14 +7,14 @@ from pathlib import Path
 
 
 times_start = time.time()
-#path = 'C:\Users\danamir\PythonProjects\mysite'
+path = 'C:\PythonProj\mysite\db.sqlite3'
 """подключение к бд"""
-#db  = sqlite3.connect(path)
-#curs = db.cursor()
+db  = sqlite3.connect(path)
+curs = db.cursor()
 
 fio = re.compile('^[А-Я]{1}[а-я]*\s[А-Я]{1}[а-я]*\s[А-Я]{1}[а-я]*')
-groups = re.compile('^\d{1}[А-Яа-я]*\d?')
-aud = re.compile('^\d*\D?')
+
+
 tim = re.compile('^\d{2}[:]\d{2}')
 ddate = re.compile('^\d{2}[.]\d{2}[.]\d{2}')
 
@@ -60,11 +60,9 @@ def search(pattern, massiv):
 
 def unicum(massiv):
     """
-
     :param massiv:
     :return:
     """
-
     unic = []
     for i in range(len(massiv)):
         if massiv[i] not in unic:
@@ -73,10 +71,10 @@ def unicum(massiv):
 
 def get_prep(doc):
     """
-
     :param doc:
     :return:
     """
+
     stolbec = 0
     prp = get_data_from_table(doc, stolbec)
     preps = search(fio, prp)
@@ -87,29 +85,27 @@ def get_group(doc):
     """
     :return:
     """
+    groups = re.compile('^\d{1}[А-Яа-я]*\d?')
     stolbec = 1
-    get_data_from_table(doc, stolbec)
-    grp = []
+    grp = get_data_from_table(doc, stolbec)
     tmp_gr = search(groups, grp)
     group = unicum(tmp_gr)
     return group
 
 def get_date(doc):
     """
-
     :return:
     """
     stolbec = 2
     tmp_date = get_data_from_table(doc, stolbec)
     srch_date = search(ddate,tmp_date)
-    zdate = unicum(srch_date)
+    zdate = unicum(srch_date
     return zdate
 
 def get_time(doc):
     """
     :doc
     :return:
-
     """
     stolbec = 2
     spl = []
@@ -128,15 +124,13 @@ def get_time(doc):
 
 
 def get_auds(doc):
-    """
-
-    :return:
-    """
+    stolbec =
+    aud = re.compile('^\d*\D?')
 
     pass
 
 doc = '2.docx'
-func1 = get_group(doc)
+func1 = get_group('2.docx')
 print(func1)
 
 
